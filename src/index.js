@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import './assets/css/milligram.min.css';
+import './assets/icon/themify-icons.css';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
