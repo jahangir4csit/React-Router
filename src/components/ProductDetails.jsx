@@ -1,11 +1,13 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import {useParams, useHistory} from "react-router-dom";
+import ProductError from './ProductError';
 
 import Loader from './Loader';
 import axios from 'axios';
 
 const ProductDetails = (props) =>{
+    const [error, setError] = useState(1);
     const [dataLoad, setDataLoad] = useState(false);
     const [product, setProduct] = useState([]);
 
@@ -13,23 +15,31 @@ const ProductDetails = (props) =>{
     const clickHandlar = (id)=>{
         history.push(`/product-edit/${id}`);
     }
-
+    
     const params = useParams();
+    console.log(error)
 
     useEffect(()=>{
         axios.get(`https://fakestoreapi.com/products/${params.id}`)
         .then((res) =>{
-          setProduct(res.data)
-          setDataLoad(true)
+          if(res.data==null){
+            setError(2)
+          }else{
+            setProduct(res.data)
+            setDataLoad(true)
+            setError(0)
+          }
         })
         .catch((err) =>{
-          console.log(err)
+            setError(1)
         })
       },[])
+
+      console.log(error)
         
     return(
         <div className="product_details my60">
-            {dataLoad === true ?
+            {dataLoad === true && error ===0?
             <div className="container">
                 <div className="row">
                     <div className="col col-9">
@@ -97,7 +107,7 @@ const ProductDetails = (props) =>{
                     <div className="col col-3"></div>
                 </div>
             </div>
-            : <Loader /> }
+            : error===2 ? <ProductError /> : <Loader /> }
         </div>
     )
 }
