@@ -1,58 +1,62 @@
 //import logo from './logo.svg';
-import {BrowserRouter as Router, Switch, Route, Redirect, Link} from "react-router-dom";
-import Home from './components/Home';
-import About from './components/About';
-import Contact from './components/Contact';
-import Page404 from './components/404.jsx';
-import Navbar from './components/Navbar';
-import MainSlide from './components/MainSlide';
-import Breadcrumb from './components/Breadcrumb';
-import ProductDetails from './components/ProductDetails';
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import { ThemeProvider } from '@material-ui/core/styles';
+import theme from './components/ui/Theme';
+import Page404 from './container/404';
+import Home from './container/Home';
+import About from './container/About';
+import Services from './container/Services';
+import Portfolio from './container/Portfolio';
+import Pricing from './container/Pricing';
+import Blog from './container/Blog';
+import Contact from './container/Contact';
+import Hero from './container/Hero';
+import Footer from './components/ui/Footer';
 
-import CreateProduct from './components/axios/CreateProduct';
-import EditProduct from './components/axios/EditProduct';
+import Header from './components/ui/Header';
+import './assets/css/page.css';
 
-import './App.css';
 
 function App() {
 
   return (
-    <Router>
-      <div className="App">
-        <div className="frontpage">
-          <Navbar />
-        </div>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Header />
         <Switch>
-          <Route exact path="/about">
-            <About />
-          </Route>
-          <Route exact path="/contact">
-            <Contact />
-          </Route>
-          <Route exact path="/">
-            <MainSlide />
-            <Home />
-          </Route>
-          <Route exact path="/product-details/:id">
-            <Breadcrumb title="Product Details" />
-            <ProductDetails />
-          </Route>
-          <Route exact path="/create">
-            <Breadcrumb title="Product Create" />
-            <CreateProduct />
-          </Route>
-          <Route exact path="/product-edit/:id">
-            <Breadcrumb title="Product Edit" />
-            <EditProduct />
-          </Route>
-          <Route path='*'>
-            <Page404 />
-          </Route>
-          
-        </Switch>
-      
-      </div>
-    </Router>
+            <Route exact path="/about">
+              <About />
+            </Route>
+            <Route exact path="/services">
+              <Services />
+            </Route>
+            <Route exact path="/portfolio">
+              <Portfolio />
+            </Route>
+            <Route exact path="/pricing">
+              <Pricing />
+            </Route>
+            <Route exact path="/blog">
+              <Blog />
+            </Route>
+            <Route exact path="/contact">
+              <Contact />
+            </Route>
+            <Route exact path="/home">
+              <Hero />
+              <About />
+            </Route>
+            <Route exact path="/">
+              <Hero />
+              <About />
+            </Route>
+            <Route path='*'>
+              <Page404 />
+            </Route>
+          </Switch>
+          <Footer />
+      </Router>
+    </ThemeProvider>
   );
 }
 
