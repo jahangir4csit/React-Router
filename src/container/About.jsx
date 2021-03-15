@@ -16,7 +16,7 @@ const useStyle = makeStyles((theme)=>({
   aboutImg: {
 
   }
-}));
+}))
 
 const About = (props) => {
   const classes = useStyle();
