@@ -13,6 +13,9 @@ export default createMuiTheme({
     typography: {
         fontSize: '1.5rem',
         fontFamily: 'roboto,Arial,sans-serif',
+        body2: {
+            lineHeight: 1.8,
+        },
         p: {
             fontSize: '1.5rem',
             fontWeight: '400',
@@ -48,6 +51,22 @@ export default createMuiTheme({
             padding: 0,
         }
 
-    }
+    },
+    overrides: {
+        MuiTab: {
+          root: {
+            maxWidth: 'auto',
+            minHeight: 'auto',
+            minWidth: 'auto',
+            padding: '1rem 1.5rem',
+            '@media (min-width: 600px)': {
+              minWidth: 'auto',
+              minHeight: 'auto',
+              maxWidth: 'auto',
+            }
+          }
+        },
+        
+      }
 
   });

@@ -24,6 +24,14 @@ body{
 .p-4 {
   padding: 1.5rem !important;
 }
+.text-mute{
+  font-family: roboto,Arial,sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: 400;
+  color: #999;
+}
+
 .main-content{
   padding-top: 100px;
 }

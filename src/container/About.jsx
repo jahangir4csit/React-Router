@@ -71,6 +71,9 @@ const useStyle = makeStyles((theme)=>({
       backgroundColor: '#0779e4',
       color: '#fff',
       overflow: 'visible',
+      borderRadius: '4px',
+      padding: '.8rem 1.5rem',
+
       '&::after': {
       position: 'absolute',
       bottom: '-8px',
@@ -86,7 +89,28 @@ const useStyle = makeStyles((theme)=>({
       borderColor: '#0779e4 transparent transparent transparent',
       }
     }
+  },
+  tabContentWrap: {
+    '& div.MuiBox-root': {
+      padding: '25px 0',
+    },
+    '& h2': {
+      fontSize: '40px',
+      fontWeight: 700,
+      lineHeight: '1.4',
+    },
+    '& h3': {
+      fontSize: '24px',
+      fontWeight: 700,
+      lineHeight: '1.5',
+    },
+    '& h4': {
+      fontSize: '20px',
+      fontWeight: 700,
+      lineHeight: '1.4',
+    }
   }
+
 }));
 
 function TabPanel(props) {
@@ -150,37 +174,60 @@ export default function About() {
                   </Tabs>
                 </Grid>
                 <Grid item direction="column">
-                  <TabPanel value={value} index={0}>
-                    <Typography variant="h2">
+                  <TabPanel value={value} index={0} className={classes.tabContentWrap}>
+                    <Typography variant="h2" className="mb-4">
                       My Story
                     </Typography>
-                    <Typography variant="p">
+                    <Typography variant="body2" display="block" className="mb-5 text-mute">
                       Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, 
                       there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the 
                       Semantics, a large language ocean.
                     </Typography>
-                    <Typography variant="h3">
+                    <Typography variant="h3" className="mb-5">
                       I Do Web Design & Developement since I was 18 Years Old
                     </Typography>
-                    <Typography variant="p">
+                    <Typography variant="body2" display="block" className="mb-4 text-mute">
                       Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, 
                       there live the blind texts.
                     </Typography>
                   </TabPanel>
-                  <TabPanel value={value} index={1}>
-                  <Typography variant="h2">
+                  <TabPanel value={value} index={1} className={classes.tabContentWrap}>
+                  <Typography variant="h2" className="mb-4">
                       Skills
                     </Typography>
-                    <Typography variant="p">
+                    <Typography variant="body2" display="block" className="mb-5 text-mute">
                       Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
                       there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
                       Semantics, a large language ocean.
                     </Typography>
                   </TabPanel>
-                  <TabPanel value={value} index={2}>
-                    <Typography variant="h4">
-                      Art & Creative Director
-                    </Typography>
+                  <TabPanel value={value} index={2} className={classes.tabContentWrap}>
+                    <Grid container direction="column">
+                      <Grid item direction="column"  className="mb-4">
+                        <Typography variant="h4">
+                          Art & Creative Director
+                        </Typography>
+                        <Typography variant="body2" display="block" className="text-mute">
+                          A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                        </Typography>
+                      </Grid>
+                      <Grid item direction="column"  className="mb-4">
+                        <Typography variant="h4">
+                          Wordpress Developer
+                        </Typography>
+                        <Typography variant="body2" display="block" className="text-mute">
+                          A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                        </Typography>
+                      </Grid>
+                      <Grid item direction="column" className="mb-4">
+                        <Typography variant="h4">
+                          UI/UX Designer
+                        </Typography>
+                        <Typography variant="body2" display="block" className="text-mute">
+                          A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                        </Typography>
+                      </Grid>
+                    </Grid>
                   </TabPanel>
                 </Grid>
               </Grid>
