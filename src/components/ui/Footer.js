@@ -55,7 +55,7 @@ const useStyle = makeStyles((theme)=>({
     },
     listItem: {
         padding: '0',
-        margin: '0',
+        marginBottom: '.5rem',
         '& svg': {
             fontSize: '20px',
             color: '#0779e4',

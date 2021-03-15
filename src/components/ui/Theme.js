@@ -11,6 +11,8 @@ export default createMuiTheme({
         },
     },
     typography: {
+        fontSize: '1.5rem',
+        fontFamily: 'roboto,Arial,sans-serif',
         p: {
             fontSize: '1.5rem',
             fontWeight: '400',
