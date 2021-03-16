@@ -44,11 +44,9 @@ function App() {
             </Route>
             <Route exact path="/home">
               <Hero />
-              <About />
             </Route>
             <Route exact path="/">
               <Hero />
-              <About />
             </Route>
             <Route path='*'>
               <Page404 />

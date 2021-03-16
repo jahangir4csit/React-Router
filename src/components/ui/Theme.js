@@ -1,5 +1,5 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-const brandBlue = "#0779e4";
+const brandBlue = '#0779e4';
 export default createMuiTheme({
 
     palette: {

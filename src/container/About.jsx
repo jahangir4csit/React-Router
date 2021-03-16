@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import Link from '@material-ui/core/Link';
-import { makeStyles } from '@material-ui/core/styles';
+import RoomIcon from '@material-ui/icons/Room';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import aboutImg from '../assets/img/about.jpg';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 const useStyle = makeStyles((theme)=>({
   head: {
@@ -68,7 +69,7 @@ const useStyle = makeStyles((theme)=>({
       borderTopRightRadius: '.25rem',
     },
     '& button.Mui-selected': {
-      backgroundColor: '#0779e4',
+      backgroundColor: theme.palette.common.blue,
       color: '#fff',
       overflow: 'visible',
       borderRadius: '4px',
@@ -109,7 +110,33 @@ const useStyle = makeStyles((theme)=>({
       fontWeight: 700,
       lineHeight: '1.4',
     }
-  }
+  },
+  progTitle: {
+    textTransform: 'uppercase',
+    fontWeight: '700',
+    fontSize: '14px',
+    display: 'inline-block',
+    marginBottom: '10px',
+  },
+  progParcent: {
+    color: theme.palette.common.blue,
+    fontSize: '16px',
+    fontWeight: 400,
+    float: 'right',
+    marginRight: '5%',
+    display: 'inline-block',
+  },
+  date: {
+    fontSize: '13px',
+    fontWeight: '500',
+    marginRight: '5px',
+    color: theme.palette.common.blue,
+  },
+  position: {
+    fontSize: '13px',
+    fontWeight: '500',
+    color: '#ccc',
+  },
 
 }));
 
@@ -145,6 +172,20 @@ function a11yProps(index) {
     'aria-controls': `simple-tabpanel-${index}`,
   };
 }
+
+const BorderLinearProgress = withStyles((theme) => ({
+  root: {
+    height: 10,
+    borderRadius: 5,
+  },
+  colorPrimary: {
+    backgroundColor: theme.palette.grey[theme.palette.type === 'light' ? 200 : 700],
+  },
+  bar: {
+    borderRadius: 5,
+    backgroundColor: theme.palette.primary,
+  },
+}))(LinearProgress);
 
 export default function About() {
 
@@ -192,7 +233,7 @@ export default function About() {
                     </Typography>
                   </TabPanel>
                   <TabPanel value={value} index={1} className={classes.tabContentWrap}>
-                  <Typography variant="h2" className="mb-4">
+                    <Typography variant="h2" className="mb-4">
                       Skills
                     </Typography>
                     <Typography variant="body2" display="block" className="mb-5 text-mute">
@@ -200,6 +241,32 @@ export default function About() {
                       there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
                       Semantics, a large language ocean.
                     </Typography>
+                    <Grid container direction="row">
+                      <Grid item xs="12" sm="6" className="pr-4">
+                        <Box component="fieldset" mb={3} borderColor="transparent">
+                          <Typography className={classes.progTitle} variant="p">Adobe Photoshop</Typography>
+                          <Typography variant="p" className={classes.progParcent}>80%</Typography>
+                          <BorderLinearProgress variant="determinate" value={80} />
+                        </Box>
+                        <Box component="fieldset" mb={3} borderColor="transparent">
+                          <Typography className={classes.progTitle} variant="p">Javascript</Typography>
+                          <Typography variant="p" className={classes.progParcent}>88%</Typography>
+                          <BorderLinearProgress variant="determinate" value={88} />
+                        </Box>
+                      </Grid>
+                      <Grid item xs="12" sm="6" className="pl-4">
+                        <Box component="fieldset" mb={3} borderColor="transparent">
+                          <Typography className={classes.progTitle} variant="p">Html/Css</Typography>
+                          <Typography variant="p" className={classes.progParcent}>90%</Typography>
+                          <BorderLinearProgress variant="determinate" value={90} />
+                        </Box>
+                        <Box component="fieldset" mb={3} borderColor="transparent">
+                          <Typography className={classes.progTitle} variant="p">Wordpress</Typography>
+                          <Typography variant="p" className={classes.progParcent}>85%</Typography>
+                          <BorderLinearProgress variant="determinate" value={85} />
+                        </Box>
+                      </Grid>
+                    </Grid>
                   </TabPanel>
                   <TabPanel value={value} index={2} className={classes.tabContentWrap}>
                     <Grid container direction="column">
@@ -207,6 +274,8 @@ export default function About() {
                         <Typography variant="h4">
                           Art & Creative Director
                         </Typography>
+                        <Typography variant="p" className={classes.date}>2014-2015 <RoomIcon /></Typography>
+                        <Typography variant="p" className={classes.position}>Google Inc.</Typography>
                         <Typography variant="body2" display="block" className="text-mute">
                           A small river named Duden flows by their place and supplies it with the necessary regelialia.
                         </Typography>
@@ -215,6 +284,8 @@ export default function About() {
                         <Typography variant="h4">
                           Wordpress Developer
                         </Typography>
+                        <Typography variant="p" className={classes.date}>2014-2015 <RoomIcon /></Typography>
+                        <Typography variant="p" className={classes.position}>Google Inc.</Typography>
                         <Typography variant="body2" display="block" className="text-mute">
                           A small river named Duden flows by their place and supplies it with the necessary regelialia.
                         </Typography>
@@ -223,6 +294,8 @@ export default function About() {
                         <Typography variant="h4">
                           UI/UX Designer
                         </Typography>
+                        <Typography variant="p" className={classes.date}>2014-2015 <RoomIcon /></Typography>
+                        <Typography variant="p" className={classes.position}>Google Inc.</Typography>
                         <Typography variant="body2" display="block" className="text-mute">
                           A small river named Duden flows by their place and supplies it with the necessary regelialia.
                         </Typography>
