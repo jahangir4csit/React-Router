@@ -29,6 +29,7 @@ const useStyle = makeStyles((theme)=>({
         '& svg': {
             color: '#0779e4',
             marginRight: '5px',
+            verticalAlign: 'middle',
         },
         '&:hover': {
             color: '#0779e4',

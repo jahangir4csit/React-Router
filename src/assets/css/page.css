@@ -7,6 +7,16 @@ body{
   line-height: 1.8;
   font-weight: 400;
   color: #999999;
+  letter-spacing: .2px;
+}
+h1,h2,h3,h4,h5,h6{
+  letter-spacing: .3px;
+}
+a{
+  text-decoration: none;
+}
+a:hover,a:focus,a:active{
+  text-decoration: none!important;
 }
 .mb-4 {
   margin-bottom: 1.5rem !important;
@@ -91,4 +101,22 @@ body{
 .slider-text .social-media a {
   color: #fff;
   margin-right: 15px;
+}
+
+.page-heading{
+  width: 100%;
+}
+.page-heading h4{
+  font-size: 14px;
+  display: block;
+  margin-bottom: 5px;
+  color: #0779e4;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+}
+.page-heading h2{
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.4;
 }

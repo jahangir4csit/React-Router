@@ -14,7 +14,7 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 const useStyle = makeStyles((theme)=>({
   head: {
     backgroundColor: theme.palette.common.blue,
-    padding: '2.04em 0',
+    padding: '2.2em 0',
   },
   aboutWrap: {
     padding: '5.3em 0',

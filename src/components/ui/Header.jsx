@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '15px',
     fontWeight: '500',
     minWidth: '70px',
-    padding: '2rem 25px',
+    padding: '1.4rem 25px',
     zIndex: '99999999',
     color: '#fff',
     position: 'relative',

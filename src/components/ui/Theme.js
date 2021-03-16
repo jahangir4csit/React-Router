@@ -1,5 +1,6 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 const brandBlue = '#0779e4';
+const font = 'roboto,Arial,sans-serif';
 export default createMuiTheme({
 
     palette: {
@@ -12,7 +13,7 @@ export default createMuiTheme({
     },
     typography: {
         fontSize: '1.5rem',
-        fontFamily: 'roboto,Arial,sans-serif',
+        fontFamily: `${font}`,
         body2: {
             lineHeight: 1.8,
         },
@@ -31,6 +32,12 @@ export default createMuiTheme({
             fontWeight: '800',
             color: '#111',
             fontSize: '22px',
+        },
+        h3: {
+            fontSize: '20px',
+            fontWeight: 700,
+            marginBottom: '10px',
+            color: `${brandBlue}`,
         },
         btn: {
             background:  `${brandBlue}`,
