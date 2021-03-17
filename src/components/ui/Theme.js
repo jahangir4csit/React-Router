@@ -43,7 +43,7 @@ export default createMuiTheme({
             background:  `${brandBlue}`,
             border: '1px solid #0779e4',
             color: '#fff',
-            padding: '2.5rem',
+            padding: '1rem 1.5rem',
             fontSize: '12px',
             fontWeight: '700',
             textTransform: 'uppercase',

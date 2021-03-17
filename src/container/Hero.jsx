@@ -1,17 +1,15 @@
 import React from 'react';
-import { useTheme } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
 import heroImg from '../assets/img/hero_bg.jpg';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Badge from '@material-ui/core/Badge';
 import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
 import ArrowRightAltOutlinedIcon from '@material-ui/icons/ArrowRightAltOutlined';
 import AddOutlinedIcon from '@material-ui/icons/AddOutlined';
 import Typography from '@material-ui/core/Typography';
-import { spacing } from '@material-ui/system';
 import Link from '@material-ui/core/Link';
+import { white } from 'material-ui/styles/colors';
 
 
 const useStyle = makeStyles((theme)=>({
@@ -40,7 +38,8 @@ const useStyle = makeStyles((theme)=>({
         ...theme.typography.btn,
         '&:hover': {
             backgroundColor: theme.palette.common.blue,
-            borderColor: theme.palette.common.blue
+            borderColor: theme.palette.common.blue,
+            color: white,
         }
     },
     button2: {
@@ -50,7 +49,8 @@ const useStyle = makeStyles((theme)=>({
         color: '#0779e4',
         '&:hover': {
             backgroundColor: theme.palette.common.blue,
-            borderColor: theme.palette.common.blue
+            borderColor: theme.palette.common.blue,
+            color: white,
         }
     }
 }))
@@ -97,9 +97,9 @@ const Hero = ()=>{
                                 View Portfolio
                             </Button>
                             <Typography className="social-media mt-5">
-                                <Link to="/"> <AddOutlinedIcon /> Facebook</Link>
-                                <Link to="/"> <AddOutlinedIcon /> Twitter</Link>
-                                <Link to="/"> <AddOutlinedIcon /> Linkedin</Link>
+                                <Link href="#"> <AddOutlinedIcon /> Facebook</Link>
+                                <Link href="#"> <AddOutlinedIcon /> Twitter</Link>
+                                <Link href="#"> <AddOutlinedIcon /> Linkedin</Link>
                             </Typography>
                         </div>
                     </div>
