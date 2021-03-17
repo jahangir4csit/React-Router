@@ -120,3 +120,27 @@ a:hover,a:focus,a:active{
   font-weight: 700;
   line-height: 1.4;
 }
+
+.MuiCardActionArea-focusHighlight{
+  background-color: #0779e4!important;
+  opacity: 0!important;
+}
+.MuiCardActionArea-root:hover .MuiCardActionArea-focusHighlight{
+  opacity: .9!important;
+}
+.card-content{
+  opacity: 0;
+  position: relative;
+  z-index: 9999999999;
+  color: #fff;
+}
+.card-content h3 a{
+  color: #fff!important;
+}
+.card-content span{
+  color: #fff;
+  text-transform: uppercase;
+}
+.MuiCardActionArea-root:hover .card-content{
+  opacity: 1;
+}
