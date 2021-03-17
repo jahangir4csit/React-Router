@@ -1,5 +1,6 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 const brandBlue = '#0779e4';
+const black = '#0779e4';
 const font = 'roboto,Arial,sans-serif';
 export default createMuiTheme({
 
@@ -72,7 +73,7 @@ export default createMuiTheme({
               maxWidth: 'auto',
             }
           }
-        },
+        }
         
       }
 

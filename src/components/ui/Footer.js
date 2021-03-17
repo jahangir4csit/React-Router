@@ -12,7 +12,11 @@ import MapIcon from '@material-ui/icons/Map';
 import CallIcon from '@material-ui/icons/Call';
 import SendIcon from '@material-ui/icons/Send';
 import TrendingFlatIcon from '@material-ui/icons/TrendingFlat';
-import { spacing } from '@material-ui/system';
+import Avatar from '@material-ui/core/Avatar';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import InstagramIcon from '@material-ui/icons/Instagram';
 
 const useStyle = makeStyles((theme)=>({
     root: {
@@ -45,6 +49,9 @@ const useStyle = makeStyles((theme)=>({
     footerLogo: {
         marginBottom: '40px',
     },
+    footerMedia: {
+        display: 'inline-flex',
+    },
     footerDesc: {
         color: '#999',
         fontSize: '16px',
@@ -64,6 +71,12 @@ const useStyle = makeStyles((theme)=>({
     },
     listItemIcon: {
         minWidth: '40px',
+    },
+    mediaitem: {
+        minWidth: '51px',
+    },
+    mediaIcon: {
+        backgroundColor: theme.palette.common.blue,
     },
     footerBottom: {
         padding: '3rem 0',
@@ -88,6 +101,37 @@ const Footer = ()=>{
                                     <Typography variant="p" className={classes.footerDesc}>
                                         A small river named Duden flows by their place and supplies it with the necessary regelialia.
                                     </Typography>
+                                </Grid>
+                                <Grid item>
+                                    <List component="nav" aria-label="footer media" className={classes.footerMedia}>
+                                        <ListItem disableGutters>
+                                            <ListItemAvatar className={classes.mediaitem}>
+                                                <Link href="#">
+                                                    <Avatar className={classes.mediaIcon}>
+                                                        <TwitterIcon />
+                                                    </Avatar>
+                                                </Link>
+                                            </ListItemAvatar>
+                                        </ListItem>
+                                        <ListItem disableGutters>
+                                            <ListItemAvatar className={classes.mediaitem}>
+                                                <Link href="#">
+                                                    <Avatar className={classes.mediaIcon}>
+                                                        <FacebookIcon />
+                                                    </Avatar>
+                                                </Link>
+                                            </ListItemAvatar>
+                                        </ListItem>
+                                        <ListItem disableGutters>
+                                            <ListItemAvatar className={classes.mediaitem}>
+                                                <Link href="#">
+                                                    <Avatar className={classes.mediaIcon}>
+                                                        <InstagramIcon />
+                                                    </Avatar>
+                                                </Link>
+                                            </ListItemAvatar>
+                                        </ListItem>
+                                    </List>
                                 </Grid>
                             </Grid>
                         </Grid>

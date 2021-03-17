@@ -10,6 +10,7 @@ import AddOutlinedIcon from '@material-ui/icons/AddOutlined';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import { white } from 'material-ui/styles/colors';
+import { Grow } from '@material-ui/core';
 
 
 const useStyle = makeStyles((theme)=>({
@@ -58,55 +59,57 @@ const useStyle = makeStyles((theme)=>({
 const Hero = ()=>{
     const classes = useStyle();
     return(
-        <Grid className={classes.heroWrap} style={{ backgroundImage: `url(${heroImg})` }}
-        container
-        justify="center"
-        direction="column"
-        spacing={0}>
-        <div className={classes.overlay}></div>
-        <Container maxWidth="md">
-            <Grid
-            container 
-            spacing={0}
+        <Grow in timeout={1000} >
+            <Grid className={classes.heroWrap} style={{ backgroundImage: `url(${heroImg})` }}
+            container
             justify="center"
-            direction="column">
-                <Grid item md="7" xs="12">
-                    <div className="slider-text">
-                        <Badge className="subheading">Hi There!</Badge>
-                        <Typography variant="h1" className="mb-5">
-                            I am Keannu Ford
-                            <Typography variant="typewrite" display="block">
-                                I Love to Develop.
-                            </Typography>
-                        </Typography>
-                        <div className="w-md-75 w-100">
-                            <p className="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                className={classes.button}
-                                endIcon={<ArrowRightAltOutlinedIcon />}
-                            >Hire Me 
-                            </Button>
-                            <Button
-                                variant="contained"
-                                color="default"
-                                className={classes.button2}
-                                endIcon={<ArrowRightAltOutlinedIcon />}
-                            >
-                                View Portfolio
-                            </Button>
-                            <Typography className="social-media mt-5">
-                                <Link href="#"> <AddOutlinedIcon /> Facebook</Link>
-                                <Link href="#"> <AddOutlinedIcon /> Twitter</Link>
-                                <Link href="#"> <AddOutlinedIcon /> Linkedin</Link>
-                            </Typography>
-                        </div>
-                    </div>
-                </Grid>
+            direction="column"
+            spacing={0}>
+            <div className={classes.overlay}></div>
+                <Container maxWidth="md">
+                    <Grid
+                    container 
+                    spacing={0}
+                    justify="center"
+                    direction="column">
+                        <Grid item md="7" xs="12">
+                            <div className="slider-text">
+                                <Badge className="subheading">Hi There!</Badge>
+                                <Typography variant="h1" className="mb-4">
+                                    I am Keannu Ford
+                                    <Typography variant="typewrite" display="block">
+                                        I Love to Develop.
+                                    </Typography>
+                                </Typography>
+                                <div className="w-md-75 w-100">
+                                    <Typography component="p" className="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</Typography>
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        className={classes.button}
+                                        endIcon={<ArrowRightAltOutlinedIcon />}
+                                    >Hire Me 
+                                    </Button>
+                                    <Button
+                                        variant="contained"
+                                        color="default"
+                                        className={classes.button2}
+                                        endIcon={<ArrowRightAltOutlinedIcon />}
+                                    >
+                                        View Portfolio
+                                    </Button>
+                                    <Typography className="social-media mt-5">
+                                        <Link href="#"> <AddOutlinedIcon /> Facebook</Link>
+                                        <Link href="#"> <AddOutlinedIcon /> Twitter</Link>
+                                        <Link href="#"> <AddOutlinedIcon /> Linkedin</Link>
+                                    </Typography>
+                                </div>
+                            </div>
+                        </Grid>
+                    </Grid>
+                </Container>
             </Grid>
-        </Container>
-        </Grid>
+        </Grow>
     )
 }
 

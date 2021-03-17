@@ -10,6 +10,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import { Grow } from '@material-ui/core';
 
 const useStyle = makeStyles((theme)=>({
   head: {
@@ -201,37 +202,43 @@ export default function About() {
         <Container maxWidth="md" className={classes.aboutWrap}>
           <Grid container direction="row" spacing={6}>
             <Grid item xs="12" sm="6" >
-              <Grid container >
-                <Grid item className={classes.aboutImg} style={{ backgroundImage: `url(${aboutImg})` }}></Grid>
-              </Grid>
+              <Grow in timeout={1000} >
+                <Grid container >
+                  <Grid item className={classes.aboutImg} style={{ backgroundImage: `url(${aboutImg})` }}></Grid>
+                </Grid>
+              </Grow>
             </Grid>
             <Grid className={classes.aboutContent} item xs="12" sm="6" >
               <Grid container>
+                <Grow in timeout={1000} >
+                  <Grid item direction="column">
+                    <Tabs className={classes.aboutTabs} value={value} onChange={handleChange} aria-label="tabs" indicatorColor="">
+                    <Grow in timeout={1000} ><Tab label="ABOUT ME" {...a11yProps(0)} /></Grow>
+                      <Tab label="SKILLS" {...a11yProps(1)} />
+                      <Tab label="EXPERIENCE" {...a11yProps(2)} />
+                    </Tabs>
+                  </Grid>
+                </Grow>
                 <Grid item direction="column">
-                  <Tabs className={classes.aboutTabs} value={value} onChange={handleChange} aria-label="tabs" indicatorColor="">
-                    <Tab label="ABOUT ME" {...a11yProps(0)} />
-                    <Tab label="SKILLS" {...a11yProps(1)} />
-                    <Tab label="EXPERIENCE" {...a11yProps(2)} />
-                  </Tabs>
-                </Grid>
-                <Grid item direction="column">
-                  <TabPanel value={value} index={0} className={classes.tabContentWrap}>
-                    <Typography variant="h2" className="mb-4">
-                      My Story
-                    </Typography>
-                    <Typography variant="body2" display="block" className="mb-5 text-mute">
-                      Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, 
-                      there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the 
-                      Semantics, a large language ocean.
-                    </Typography>
-                    <Typography variant="h3" className="mb-5">
-                      I Do Web Design & Developement since I was 18 Years Old
-                    </Typography>
-                    <Typography variant="body2" display="block" className="mb-4 text-mute">
-                      Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, 
-                      there live the blind texts.
-                    </Typography>
-                  </TabPanel>
+                  <Grow in timeout={1000} >
+                    <TabPanel value={value} index={0} className={classes.tabContentWrap}>
+                      <Typography variant="h2" className="mb-4">
+                        My Story
+                      </Typography>
+                      <Typography variant="body2" display="block" className="mb-5 text-mute">
+                        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, 
+                        there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the 
+                        Semantics, a large language ocean.
+                      </Typography>
+                      <Typography variant="h3" className="mb-5">
+                        I Do Web Design & Developement since I was 18 Years Old
+                      </Typography>
+                      <Typography variant="body2" display="block" className="mb-4 text-mute">
+                        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, 
+                        there live the blind texts.
+                      </Typography>
+                    </TabPanel>
+                  </Grow>
                   <TabPanel value={value} index={1} className={classes.tabContentWrap}>
                     <Typography variant="h2" className="mb-4">
                       Skills

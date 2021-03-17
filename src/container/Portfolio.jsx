@@ -9,6 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
 import CardContent from '@material-ui/core/CardContent';
 import { white } from 'material-ui/styles/colors';
+import { Grow } from '@material-ui/core';
 
 import projectImg1 from '../assets/img/portfolio/project-1.jpg';
 import projectImg2 from '../assets/img/portfolio/project-2.jpg';
@@ -24,6 +25,9 @@ const useStyle = makeStyles((theme)=>({
   head: {
     backgroundColor: theme.palette.common.blue,
     padding: '2.2em 0',
+  },
+  cardGrid: {
+    paddingBottom: theme.spacing(8),
   },
   card: {
     width: '100%',
@@ -54,9 +58,6 @@ const useStyle = makeStyles((theme)=>({
       textTransform: 'uppercase',
     },
   },
-  cardGrid: {
-    paddingBottom: '5em',
-  },
 
 
 }));
@@ -69,97 +70,108 @@ export default function Portfolio (){
         <Container maxWidth="md" component="main" className={classes.root}>
           <Grid container direction="row">
             <Grid item xs={12} align="center" className="page-heading mb-5">
-              <Typography variant="h4">
-                Portfolio
-              </Typography>
-              <Typography variant="h2" className="mb-4">
-                My Latest Work
-              </Typography>
+              <Grow in timeout={800} >
+                <Typography variant="h4">
+                  Portfolio
+                </Typography>
+              </Grow>
+              <Grow in timeout={900} >
+                <Typography variant="h2" className="mb-4">
+                  My Latest Work
+                </Typography>
+              </Grow>
             </Grid>
           </Grid>
         </Container>
         <Container className={classes.cardGrid} maxWidth="md">
-          {/* End hero unit */}
           <Grid container spacing={4}>
               <Grid item xs={12} sm={6} md={6}>
-                <Card className={classes.card} square={true} >
-                  <CardActionArea className={classes.CardActionArea}>
-                    <CardMedia
-                      className={classes.cardMedia}
-                      image={projectImg1}
-                      title="Image title"/>
-                    
-                      <CardContent align="center" className="card-content">
-                        <Typography variant="h3">
-                          <Link href="#">Branding & Illustration Design</Link>
-                        </Typography>
-                        <Typography variant="span">
-                          WEB DESIGN
-                        </Typography>
-                      </CardContent>
-                    
-                  </CardActionArea>
-                </Card>
+                <Grow in timeout={1000} >
+                  <Card className={classes.card} square={true} >
+                    <CardActionArea className={classes.CardActionArea}>
+                      <CardMedia
+                        className={classes.cardMedia}
+                        image={projectImg1}
+                        title="Image title"/>
+                      
+                        <CardContent align="center" className="card-content">
+                          <Typography variant="h3">
+                            <Link href="#">Branding & Illustration Design</Link>
+                          </Typography>
+                          <Typography variant="span">
+                            WEB DESIGN
+                          </Typography>
+                        </CardContent>
+                      
+                    </CardActionArea>
+                  </Card>
+                </Grow>
               </Grid>
               <Grid item xs={12} sm={6} md={6}>
-                <Card className={classes.card} square={true} >
-                  <CardActionArea className={classes.CardActionArea}>
-                    <CardMedia
-                      className={classes.cardMedia}
-                      image={projectImg2}
-                      title="Image title"/>
-                    
-                      <CardContent align="center" className="card-content">
-                        <Typography variant="h3">
-                          <Link href="#">Branding & Illustration Design</Link>
-                        </Typography>
-                        <Typography variant="span">
-                          WEB DESIGN
-                        </Typography>
-                      </CardContent>
-                    
-                  </CardActionArea>
-                </Card>
+                <Grow in timeout={1000} >
+                  <Card className={classes.card} square={true} >
+                    <CardActionArea className={classes.CardActionArea}>
+                      <CardMedia
+                        className={classes.cardMedia}
+                        image={projectImg2}
+                        title="Image title"/>
+                      
+                        <CardContent align="center" className="card-content">
+                          <Typography variant="h3">
+                            <Link href="#">Branding & Illustration Design</Link>
+                          </Typography>
+                          <Typography variant="span">
+                            WEB DESIGN
+                          </Typography>
+                        </CardContent>
+                      
+                    </CardActionArea>
+                  </Card>
+                </Grow>
               </Grid>
               <Grid item xs={12} sm={6} md={6}>
-                <Card className={classes.card} square={true} >
-                  <CardActionArea className={classes.CardActionArea}>
-                    <CardMedia
-                      className={classes.cardMedia}
-                      image={projectImg3}
-                      title="Image title"/>
-                    
-                      <CardContent align="center" className="card-content">
-                        <Typography variant="h3">
-                          <Link href="#">Branding & Illustration Design</Link>
-                        </Typography>
-                        <Typography variant="span">
-                          WEB DESIGN
-                        </Typography>
-                      </CardContent>
-                    
-                  </CardActionArea>
-                </Card>
+                <Grow in timeout={1000} >
+                  <Card className={classes.card} square={true} >
+                    <CardActionArea className={classes.CardActionArea}>
+                      <CardMedia
+                        className={classes.cardMedia}
+                        image={projectImg3}
+                        title="Image title"/>
+                      
+                        <CardContent align="center" className="card-content">
+                          <Typography variant="h3">
+                            <Link href="#">Branding & Illustration Design</Link>
+                          </Typography>
+                          <Typography variant="span">
+                            WEB DESIGN
+                          </Typography>
+                        </CardContent>
+                      
+                    </CardActionArea>
+                  </Card>
+                </Grow>
               </Grid>
               <Grid item xs={12} sm={6} md={6}>
-                <Card className={classes.card} square={true} >
-                  <CardActionArea className={classes.CardActionArea}>
-                    <CardMedia
-                      className={classes.cardMedia}
-                      image={projectImg4}
-                      title="Image title"/>
-                    
-                      <CardContent align="center" className="card-content">
-                        <Typography variant="h3">
-                          <Link href="#">Branding & Illustration Design</Link>
-                        </Typography>
-                        <Typography variant="span">
-                          WEB DESIGN
-                        </Typography>
-                      </CardContent>
-                    
-                  </CardActionArea>
-                </Card>
+                <Grow in timeout={1000} >
+                  <Card className={classes.card} square={true} >
+                    <CardActionArea className={classes.CardActionArea}>
+                      <CardMedia
+                        className={classes.cardMedia}
+                        image={projectImg4}
+                        title="Image title"/>
+                      
+                        <CardContent align="center" className="card-content">
+                          <Typography variant="h3">
+                            <Link href="#">Branding & Illustration Design</Link>
+                          </Typography>
+                          <Typography variant="span">
+                            WEB DESIGN
+                          </Typography>
+                        </CardContent>
+                      
+                    </CardActionArea>
+                  </Card>
+                </Grow>
               </Grid>
 
           </Grid>

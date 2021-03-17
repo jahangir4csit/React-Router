@@ -18,6 +18,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import {Link} from "react-router-dom";
 import { useState } from 'react';
+import { Grow } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -238,14 +239,16 @@ export default function Header(props){
       <ElevationScroll>
         <AppBar position="fixed" color={trigger ? 'primary' : 'transparent'}>
           <Container maxWidth="md">
-            <Grid container direction="row"> 
-              <Grid item xs="12">
-                <Toolbar className={classes.toolbar}>
-                  <span className={classes.logo}>Kn.Ford</span>
-                  {matches ? drawer : tabs}
-                </Toolbar>
+            <Grid container direction="row">
+              <Grow in timeout={800} >
+                <Grid item xs="12">
+                  <Toolbar className={classes.toolbar}>
+                    <span className={classes.logo}>Kn.Ford</span>
+                    {matches ? drawer : tabs}
+                  </Toolbar>
                 </Grid>
-              </Grid>
+              </Grow> 
+            </Grid>
           </Container>
         </AppBar>
       </ElevationScroll>

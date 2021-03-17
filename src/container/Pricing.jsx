@@ -9,6 +9,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { white } from 'material-ui/styles/colors';
+import { Grow } from '@material-ui/core';
 
 const useStyle = makeStyles((theme)=>({
   root: {
@@ -86,125 +87,135 @@ export default function Pricing() {
           <Container maxWidth="md" component="main" className={classes.root}>
             <Grid container direction="row">
               <Grid item xs={12} align="center" className="page-heading mb-5">
-                <Typography variant="h4">
-                  Pricing
-                </Typography>
-                <Typography variant="h2" className="mb-4">
-                  Pricing & Packages
-                </Typography>
+                <Grow in timeout={800} >
+                  <Typography variant="h4">
+                    Pricing
+                  </Typography>
+                </Grow>
+                <Grow in timeout={900} >
+                  <Typography variant="h2" className="mb-4">
+                    Pricing & Packages
+                  </Typography>
+                </Grow>
               </Grid>
             </Grid>
             <Grid container spacing={5} alignItems="flex-end">
               <Grid item xs={12} sm={6} md={4}>
-                <Card className={classes.card} >
-                  <CardHeader className={classes.cardHeader} title="BASIC PLAN" titleTypographyProps={{ align: 'center' }} />
-                  <CardContent className={classes.cardContent}>
-                    <div className={classes.cardPricing}>
-                      <Typography component="sup" color="Primary" className={classes.sup}>
-                        $
-                      </Typography>
-                      <Typography component="span" variant="h3">
-                        {'109K'}
-                      </Typography>
-                    </div>
-                    <ul>
-                      <Typography component="li" variant="subtitle1" align="center">
-                        Far far away, behind the word
-                      </Typography>
-                      <Typography component="li" variant="subtitle1" align="center">
-                        mountains, far from the
-                      </Typography>
-                      <Typography component="li" variant="subtitle1" align="center">
-                        countries Vokalia and
-                      </Typography>
-                      <Typography component="li" variant="subtitle1" align="center">
-                        Consonantia, there live the
-                      </Typography>
-                      <Typography component="li" variant="subtitle1" align="center">
-                        blind texts.
-                      </Typography>
-                    </ul>
-                  </CardContent>
-                  <CardActions className={classes.cardAction}>
-                    <Button variant="outlined" size="large" color="primary" className={classes.margin}>
-                      Get Started
-                    </Button>
-                  </CardActions>
-                </Card>
+                <Grow in timeout={1000} >
+                  <Card className={classes.card} >
+                    <CardHeader className={classes.cardHeader} title="BASIC PLAN" titleTypographyProps={{ align: 'center' }} />
+                    <CardContent className={classes.cardContent}>
+                      <div className={classes.cardPricing}>
+                        <Typography component="sup" color="Primary" className={classes.sup}>
+                          $
+                        </Typography>
+                        <Typography component="span" variant="h3">
+                          {'109K'}
+                        </Typography>
+                      </div>
+                      <ul>
+                        <Typography component="li" variant="subtitle1" align="center">
+                          Far far away, behind the word
+                        </Typography>
+                        <Typography component="li" variant="subtitle1" align="center">
+                          mountains, far from the
+                        </Typography>
+                        <Typography component="li" variant="subtitle1" align="center">
+                          countries Vokalia and
+                        </Typography>
+                        <Typography component="li" variant="subtitle1" align="center">
+                          Consonantia, there live the
+                        </Typography>
+                        <Typography component="li" variant="subtitle1" align="center">
+                          blind texts.
+                        </Typography>
+                      </ul>
+                    </CardContent>
+                    <CardActions className={classes.cardAction}>
+                      <Button variant="outlined" size="large" color="primary" className={classes.margin}>
+                        Get Started
+                      </Button>
+                    </CardActions>
+                  </Card>
+                </Grow>
               </Grid>
               <Grid item xs={12} sm={6} md={4}>
-                <Card className={classes.card}>
-                  <CardHeader className={classes.cardHeader} title="BEGINNER PLAN" titleTypographyProps={{ align: 'center' }} />
-                  <CardContent className={classes.cardContent}>
-                    <div className={classes.cardPricing}>
-                      <Typography component="sup" color="Primary" className={classes.sup}>
-                        $
-                      </Typography>
-                      <Typography component="span" variant="h3">
-                        {'109K'}
-                      </Typography>
-                    </div>
-                    <ul>
-                      <Typography component="li" variant="subtitle1" align="center">
-                        Far far away, behind the word
-                      </Typography>
-                      <Typography component="li" variant="subtitle1" align="center">
-                        mountains, far from the
-                      </Typography>
-                      <Typography component="li" variant="subtitle1" align="center">
-                        countries Vokalia and
-                      </Typography>
-                      <Typography component="li" variant="subtitle1" align="center">
-                        Consonantia, there live the
-                      </Typography>
-                      <Typography component="li" variant="subtitle1" align="center">
-                        blind texts.
-                      </Typography>
-                    </ul>
-                  </CardContent>
-                  <CardActions className={classes.cardAction}>
-                    <Button variant="outlined" size="large" color="primary" className={classes.margin}>
-                      Get Started
-                    </Button>
-                  </CardActions>
-                </Card>
+                <Grow in timeout={1000} >
+                  <Card className={classes.card}>
+                    <CardHeader className={classes.cardHeader} title="BEGINNER PLAN" titleTypographyProps={{ align: 'center' }} />
+                    <CardContent className={classes.cardContent}>
+                      <div className={classes.cardPricing}>
+                        <Typography component="sup" color="Primary" className={classes.sup}>
+                          $
+                        </Typography>
+                        <Typography component="span" variant="h3">
+                          {'109K'}
+                        </Typography>
+                      </div>
+                      <ul>
+                        <Typography component="li" variant="subtitle1" align="center">
+                          Far far away, behind the word
+                        </Typography>
+                        <Typography component="li" variant="subtitle1" align="center">
+                          mountains, far from the
+                        </Typography>
+                        <Typography component="li" variant="subtitle1" align="center">
+                          countries Vokalia and
+                        </Typography>
+                        <Typography component="li" variant="subtitle1" align="center">
+                          Consonantia, there live the
+                        </Typography>
+                        <Typography component="li" variant="subtitle1" align="center">
+                          blind texts.
+                        </Typography>
+                      </ul>
+                    </CardContent>
+                    <CardActions className={classes.cardAction}>
+                      <Button variant="outlined" size="large" color="primary" className={classes.margin}>
+                        Get Started
+                      </Button>
+                    </CardActions>
+                  </Card>
+                </Grow>
               </Grid>
               <Grid item xs={12} sm={6} md={4}>
-                <Card className={classes.card}>
-                  <CardHeader className={classes.cardHeader} title="PREMIUM PLAN" titleTypographyProps={{ align: 'center' }} />
-                  <CardContent className={classes.cardContent}>
-                    <div className={classes.cardPricing}>
-                      <Typography component="sup" color="Primary" className={classes.sup}>
-                        $
-                      </Typography>
-                      <Typography component="span" variant="h3">
-                        {'109K'}
-                      </Typography>
-                    </div>
-                    <ul>
-                      <Typography component="li" variant="subtitle1" align="center">
-                        Far far away, behind the word
-                      </Typography>
-                      <Typography component="li" variant="subtitle1" align="center">
-                        mountains, far from the
-                      </Typography>
-                      <Typography component="li" variant="subtitle1" align="center">
-                        countries Vokalia and
-                      </Typography>
-                      <Typography component="li" variant="subtitle1" align="center">
-                        Consonantia, there live the
-                      </Typography>
-                      <Typography component="li" variant="subtitle1" align="center">
-                        blind texts.
-                      </Typography>
-                    </ul>
-                  </CardContent>
-                  <CardActions className={classes.cardAction}>
-                    <Button variant="outlined" size="large" color="primary" className={classes.margin}>
-                      Get Started
-                    </Button>
-                  </CardActions>
-                </Card>
+                <Grow in timeout={1000} >
+                  <Card className={classes.card}>
+                    <CardHeader className={classes.cardHeader} title="PREMIUM PLAN" titleTypographyProps={{ align: 'center' }} />
+                    <CardContent className={classes.cardContent}>
+                      <div className={classes.cardPricing}>
+                        <Typography component="sup" color="Primary" className={classes.sup}>
+                          $
+                        </Typography>
+                        <Typography component="span" variant="h3">
+                          {'109K'}
+                        </Typography>
+                      </div>
+                      <ul>
+                        <Typography component="li" variant="subtitle1" align="center">
+                          Far far away, behind the word
+                        </Typography>
+                        <Typography component="li" variant="subtitle1" align="center">
+                          mountains, far from the
+                        </Typography>
+                        <Typography component="li" variant="subtitle1" align="center">
+                          countries Vokalia and
+                        </Typography>
+                        <Typography component="li" variant="subtitle1" align="center">
+                          Consonantia, there live the
+                        </Typography>
+                        <Typography component="li" variant="subtitle1" align="center">
+                          blind texts.
+                        </Typography>
+                      </ul>
+                    </CardContent>
+                    <CardActions className={classes.cardAction}>
+                      <Button variant="outlined" size="large" color="primary" className={classes.margin}>
+                        Get Started
+                      </Button>
+                    </CardActions>
+                  </Card>
+                </Grow>
               </Grid>
             </Grid>
           </Container>
