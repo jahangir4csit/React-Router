@@ -139,7 +139,12 @@ const useStyles = makeStyles((theme) => ({
 export default function Header(){
 
   const cartReducer = useSelector((state)=> state);
-  console.log(cartReducer);
+  const cartItem = cartReducer.cartStore.cart;
+  let addedItem = cartItem.map(()=>{
+    return(
+      <MenuItem>{cartItem[0]} | {cartItem[1]} | {cartItem[2]}</MenuItem>
+    )
+  })
 
   const [anchorEl, setAnchorEl] = useState(null);
   const [open,setOpen] = useState(false);
@@ -317,7 +322,7 @@ export default function Header(){
                         aria-controls="menu-appbar"
                         aria-haspopup="true"
                         onClick={handleProfileMenuOpen}>
-                          <Badge badgeContent={cartReducer.cartStore.cart} color="primary" className={classes.badge}>
+                          <Badge badgeContent={cartReducer.cartStore.total} color="primary" className={classes.badge}>
                             <LocalMallOutlinedIcon />
                           </Badge>
                         </IconButton>
@@ -336,7 +341,7 @@ export default function Header(){
                           open={openCart}
                           onClose={handleClose}
                         >
-                          <MenuItem onClick={handleClose}>cart Item one plus</MenuItem>
+                          {addedItem}
                           <MenuItem onClick={handleClose}>View Cart</MenuItem>
                         </Menu>
                       </Grid>

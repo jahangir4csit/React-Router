@@ -68,12 +68,12 @@ const ProductDetails = (props) =>{
         })
       },[])
 
-      const addCartItem = () =>{
+      const addCartItem = (id,name,price) =>{
         // dispatch({
         //     type: 'ADD_TO_CART',
         //     payload: cartStore.cart ? cartStore.cart + 1 : 1,
         // }); 
-        dispatch(addToCart(selectedProduct));
+        dispatch(addToCart([id,name,price]));
       }
         
     return(
@@ -127,7 +127,7 @@ const ProductDetails = (props) =>{
                                             </div>
                                         </div>
                                         <div class="add-to-cart-style">
-                                            <Link className={classes.cartButton} onClick={addCartItem}><LocalMallOutlinedIcon /> Add to cart</Link>
+                                            <Link className={classes.cartButton} onClick={(data)=>addCartItem(selectedProduct.id,selectedProduct.title,selectedProduct.price)}><LocalMallOutlinedIcon /> Add to cart</Link>
                                         </div>
                                         </div>
                                         <div class="btn-wrapper">
