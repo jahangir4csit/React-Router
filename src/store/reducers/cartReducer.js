@@ -11,7 +11,7 @@ const CartReducer = (state=initial, action)=>{
             let newItem = action.payload;
             return {
                 ...state,
-                 cart: [state.cart.concat(newItem)],
+                 cart: [...state.cart.concat(newItem)],
                  total: state.total + 1,
             };
 

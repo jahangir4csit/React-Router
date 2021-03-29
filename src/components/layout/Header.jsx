@@ -140,12 +140,7 @@ export default function Header(){
 
   const cartReducer = useSelector((state)=> state);
   const cartItem = cartReducer.cartStore.cart;
-  console.log(cartItem, 'addedItem')
-  let addedItem = cartItem.map(()=>{
-    return(
-      <MenuItem>{cartItem}</MenuItem>
-    )
-  })
+  const addedItem = cartItem.map((item)=> <MenuItem>{item.name} - Price: {item.price}</MenuItem> )
 
   const [anchorEl, setAnchorEl] = useState(null);
   const [open,setOpen] = useState(false);

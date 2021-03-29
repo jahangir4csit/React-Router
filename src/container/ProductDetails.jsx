@@ -73,7 +73,15 @@ const ProductDetails = (props) =>{
         //     type: 'ADD_TO_CART',
         //     payload: cartStore.cart ? cartStore.cart + 1 : 1,
         // }); 
-        dispatch(addToCart([id,name,price,img]));
+        dispatch({
+            type: 'ADD_TO_CART',
+            payload: {
+                id: id,
+                name: name,
+                price: price,
+                img: img,
+            }
+        });
       }
         
     return(
