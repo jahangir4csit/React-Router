@@ -8,10 +8,10 @@ const initial = {
 const CartReducer = (state=initial, action)=>{
     switch(action.type){
         case 'ADD_TO_CART':
-            let cart = action.payload;
+            let newItem = action.payload;
             return {
                 ...state,
-                 cart: state.cart.concat(cart),
+                 cart: [state.cart.concat(newItem)],
                  total: state.total + 1,
             };
 
