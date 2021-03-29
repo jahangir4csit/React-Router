@@ -140,6 +140,7 @@ export default function Header(){
 
   const cartReducer = useSelector((state)=> state);
   const cartItem = cartReducer.cartStore.cart;
+  console.log(cartItem, 'addedItem')
   let addedItem = cartItem.map(()=>{
     return(
       <MenuItem>{cartItem[0]} | {cartItem[1]} | {cartItem[2]}</MenuItem>
