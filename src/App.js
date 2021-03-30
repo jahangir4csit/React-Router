@@ -11,6 +11,7 @@ import Footer from './components/layout/footer';
 import MainSlide from './components/layout/MainSlide';
 import Breadcrumb from './components/layout/Breadcrumb';
 import ProductDetails from './container/ProductDetails';
+import Cart from './container/Cart';
 
 import CreateProduct from './components/axios/CreateProduct';
 import EditProduct from './components/axios/EditProduct';
@@ -38,11 +39,15 @@ function App() {
               <Home />
             </Route>
             <Route exact path="/product-details/:id">
-              <Breadcrumb title="Product Details" />
+              <Breadcrumb title="SHOP" subtitle="Details" />
               <ProductDetails />
             </Route>
+            <Route exact path="/cart">
+              <Breadcrumb title="SHOPPING CART" subtitle="Shoping Cart" />
+              <Cart />
+            </Route>
             <Route exact path="/create">
-              <Breadcrumb title="Product Create" />
+              <Breadcrumb title="Product Create" subtitle="Creat" />
               <CreateProduct />
             </Route>
             <Route exact path="/product-edit/:id">

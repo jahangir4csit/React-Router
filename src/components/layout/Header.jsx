@@ -173,6 +173,7 @@ export default function Header(){
         <Tab className={classes.tab} component={Link} to="/" label="Home" />
         <Tab className={classes.tab} component={Link} to="/shop" label="Shop" />
         <Tab className={classes.tab} component={Link} to="/categories" label="Categories" />
+        <Tab className={classes.tab} component={Link} to="/cart" label="My Cart" />
         <Tab className={classes.tab} component={Link} to="/about" label="About" />
         <Tab className={classes.tab} component={Link} to="/contact" label="Contact" />
       </Tabs>
@@ -221,10 +222,19 @@ export default function Header(){
           <ListItem 
           className={classes.drawerItem} 
           onClick={()=> {setOpenDrawer(false); setValue(3)}}  
-          component={Link} to="/about"
+          component={Link} to="/cart"
           selected={value === 3}>
             <ListItemText 
             className={value===3 ? [classes.drawerItem,classes.drawerItemSelected] : classes.drawerItem} 
+            disableTypography>My Cart</ListItemText>
+          </ListItem>
+          <ListItem 
+          className={classes.drawerItem} 
+          onClick={()=> {setOpenDrawer(false); setValue(4)}}  
+          component={Link} to="/about"
+          selected={value === 4}>
+            <ListItemText 
+            className={value===4 ? [classes.drawerItem,classes.drawerItemSelected] : classes.drawerItem} 
             disableTypography>About</ListItemText>
           </ListItem>
           <ListItem 
