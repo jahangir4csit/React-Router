@@ -70,8 +70,7 @@ export default function Cart(){
 
     const cartReducer = useSelector((state)=> state);
     const cartItem = cartReducer.cartStore.cart;
-    const rows = cartItem.map((item)=> createRow(item.name,'1',item.price) )
-    console.log(rows, 'new data');
+    const rows = cartItem.map((item)=> createRow(item.name,'1',item.price))
 
     const SHIPPING_CHARGE = 50.00;
 

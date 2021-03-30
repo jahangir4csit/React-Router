@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import {useSelector} from 'react-redux';
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import logo from '../../logo.svg';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -140,7 +140,8 @@ export default function Header(){
 
   const cartReducer = useSelector((state)=> state);
   const cartItem = cartReducer.cartStore.cart;
-  const addedItem = cartItem.map((item)=> <MenuItem>{item.name} - Price: {item.price}</MenuItem> )
+  const addedItem = cartItem.map((item)=> <MenuItem>{item.name} - Price: {item.price}</MenuItem> );
+  const history = useHistory();
 
   const [anchorEl, setAnchorEl] = useState(null);
   const [open,setOpen] = useState(false);
@@ -151,7 +152,8 @@ export default function Header(){
   };
   const handleClose = (e) => {
     setAnchorEl(null);
-    setOpen(false)
+    setOpen(false);
+    history.push('/cart/');
   };
   const handleChange = (e, value) =>{
     setValue(value)
