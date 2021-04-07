@@ -7,6 +7,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import ProductError from './ProductError';
 import Loader from '../components/ui/Loader';
 import axios from 'axios';
+import Button from '@material-ui/core/Button';
 
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
@@ -19,16 +20,29 @@ import Typography from '@material-ui/core/Typography';
 import { useTheme } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
 
+import ToggleButton from '@material-ui/lab/ToggleButton';
+import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
+
 const useStyles = makeStyles((theme) => ({
-    cartButton: {
-        cursor: 'pointer',
-        textDecoration: 'none',
-        '&:hover':{
-            textDecoration: 'none',
-        }
-    },
     thumb: {
         maxHeight: '450px',
+    },
+    btnSize: {
+        padding: '4px 12px',
+        borderRadius: 0,
+        marginRight: '10px',
+        '&:not(:last-child)':{
+            borderLeft: '1px solid rgba(0, 0, 0, 0.12)',
+            marginLeft: 'auto',
+        },
+        '&:not(:first-child)':{
+            borderLeft: '1px solid rgba(0, 0, 0, 0.12)',
+            marginLeft: 'auto',
+        },
+        '&:hover': {
+            backgroundColor: '#000',
+            color: '#fff'
+        }
     }
   }));
 
@@ -36,6 +50,11 @@ const ProductDetails = (props) =>{
 
     const classes = useStyles();
     const theme = useTheme();
+
+    const [alignment, setAlignment] = React.useState('left');
+    const handleAlignment = (event, newAlignment) => {
+        setAlignment(newAlignment);
+    };
 
     const [error, setError] = useState(1);
     const [dataLoad, setDataLoad] = useState(false);
@@ -98,23 +117,39 @@ const ProductDetails = (props) =>{
                             </Grid>
                             <Grid item xs={12} sm={7}>
                                 <div class="content-part margin-top-20">
-                                    <span onClick={() => clickHandlar(params.id)} className="right edit"><i style={{color:'#FF8E78'}} className="ti-pencil-alt"></i> Edit</span>
-                                    <h3 class="product-title">{selectedProduct.title} </h3>
-                                    <p class="price">${selectedProduct.price}</p>
+                                    <Typography component="span" onClick={() => clickHandlar(params.id)} className="right edit"><i style={{color:'#FF8E78'}} className="ti-pencil-alt"></i> Edit</Typography>
+                                    <Typography component="h3" class="product-title">{selectedProduct.title} </Typography>
+                                    <Typography component="p" class="price">${selectedProduct.price}</Typography>
                                     <Ratings />
-                                    <span class="review-text">3 reviews</span>
-                                    <p class="specifications">SKU: <b>0014</b></p>
-                                    <p class="specifications">AVAILABILITY: <b class="color-green">In Stock</b></p>
-                                    <div class="d-flex">
-                                        <span class="specifications">SIZE: </span>
-                                        <ul class="size-list align-self-center pl-3">
-                                            <li><a href="#">S</a></li>
-                                            <li><a href="#">M</a></li>
-                                            <li><a href="#">X</a></li>
-                                            <li><a href="#">XL</a></li>
-                                            <li><a href="#">XS</a></li>
-                                        </ul>
+                                    <Typography component="span" class="review-text">3 reviews</Typography>
+                                    <Typography component="p" class="specifications">SKU: <b>0014</b></Typography>
+                                    <Typography component="p" class="specifications">AVAILABILITY: <b class="color-green">In Stock</b></Typography>
+                                    <div className="product_size">
+                                        <Typography component="span" class="specifications">SIZE: </Typography>
+                                        <ToggleButtonGroup
+                                        value={alignment}
+                                        exclusive
+                                        onChange={handleAlignment}
+                                        aria-label="text alignment"
+                                        >
+                                            <ToggleButton className={classes.btnSize} value="S" aria-label="left aligned">
+                                                S
+                                            </ToggleButton>
+                                            <ToggleButton className={classes.btnSize} value="M" aria-label="centered">
+                                                M
+                                            </ToggleButton>
+                                            <ToggleButton className={classes.btnSize} value="X" aria-label="right aligned">
+                                                X
+                                            </ToggleButton>
+                                            <ToggleButton className={classes.btnSize} value="XL" aria-label="justified">
+                                                XL
+                                            </ToggleButton>
+                                            <ToggleButton className={classes.btnSize} value="XS" aria-label="justified">
+                                                XS
+                                            </ToggleButton>
+                                        </ToggleButtonGroup>
                                     </div>
+
                                     <div class="d-flex">
                                         <span class="specifications">COLOR: </span>
                                         <ul class="color-list align-self-center">
@@ -134,16 +169,14 @@ const ProductDetails = (props) =>{
                                                 <a class="btn btn-sm" id="plus-btn"><AddSharpIcon /></a>
                                             </div>
                                         </div>
-                                        <div class="add-to-cart-style">
-                                            <Link className={classes.cartButton} 
-                                            onClick={(data)=>addCartItem(selectedProduct.id,selectedProduct.title,selectedProduct.price,selectedProduct.image)}>
-                                                <LocalMallOutlinedIcon /> Add to cart</Link>
-                                        </div>
-                                        </div>
-                                        <div class="btn-wrapper">
-                                        <Link href="#" className="btn btn-buy">Buy it now</Link>
-                                        </div>
+                                        <Button variant="contained" className="add-to-cart-style"
+                                        onClick={(data)=>addCartItem(selectedProduct.id,selectedProduct.title,selectedProduct.price,selectedProduct.image)}>
+                                        <LocalMallOutlinedIcon /> Add to cart</Button>
                                     </div>
+                                    <div class="btn-wrapper">
+                                        <Button variant="outlined" className="btn btn-buy">Buy it now</Button>
+                                    </div>
+                                </div>
                             </Grid>
                         </Grid>
                     </Grid>

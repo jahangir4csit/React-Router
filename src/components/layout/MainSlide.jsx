@@ -43,7 +43,7 @@ const MainSlider = ()=>{
                 <Typography variant="h2" className="title">
                     FAVOURITE CLOTHING
                 </Typography>
-                <div class="mt50 pl-1">
+                <div className="mt50 pl-1">
                     <div class="btn-wrapper">
                         <Button
                             variant="contained"

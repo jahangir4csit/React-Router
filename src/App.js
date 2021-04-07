@@ -2,13 +2,13 @@
 import {BrowserRouter as Router, Switch, Route, Redirect, Link} from "react-router-dom";
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from './components/ui/Theme';
-import Home from './container/Home';
+import ProductList from './container/ProductList';
 import About from './container/About.jsx';
 import Contact from './container/Contact.jsx';
 import Page404 from './container/404.jsx';
 import Header from './components/layout/Header';
 import Footer from './components/layout/footer';
-import MainSlide from './components/layout/MainSlide';
+import Slider from './components/layout/Slider';
 import Breadcrumb from './components/layout/Breadcrumb';
 import ProductDetails from './container/ProductDetails';
 import Cart from './container/Cart';
@@ -24,9 +24,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <Router>
         <div className="App">
-          <div className="frontpage">
-            <Header />
-          </div>
+          <Header />
           <Switch>
             <Route exact path="/about">
               <About />
@@ -35,15 +33,19 @@ function App() {
               <Contact />
             </Route>
             <Route exact path="/">
-              <MainSlide />
-              <Home />
+              <Slider />
+              <ProductList />
+            </Route>
+            <Route exact path="/shop">
+              <Breadcrumb title="Product List" />
+              <ProductList />
             </Route>
             <Route exact path="/product-details/:id">
-              <Breadcrumb title="SHOP" subtitle="Details" />
+              <Breadcrumb title="Details" />
               <ProductDetails />
             </Route>
             <Route exact path="/cart">
-              <Breadcrumb title="SHOPPING CART" subtitle="Shoping Cart" />
+              <Breadcrumb title="Cart" />
               <Cart />
             </Route>
             <Route exact path="/create">
@@ -57,9 +59,8 @@ function App() {
             <Route path='*'>
               <Page404 />
             </Route>
-            
           </Switch>
-        
+          <Footer />
         </div>
       </Router>
     </ThemeProvider>

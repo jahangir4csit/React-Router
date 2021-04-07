@@ -1,91 +1,199 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import Link from '@material-ui/core/Link';
+import paypal from '../../assets/img/Payment/2.png';
+import visacard from '../../assets/img/Payment/3.png';
+import mastercard from '../../assets/img/Payment/4.png';
 
-const Footer = ()=>{
+import FacebookIcon from '@material-ui/icons/Facebook';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import PinterestIcon from '@material-ui/icons/Pinterest';
+import YouTubeIcon from '@material-ui/icons/YouTube';
+import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
+import MailOutlineOutlinedIcon from '@material-ui/icons/MailOutlineOutlined';
+import CallOutlinedIcon from '@material-ui/icons/CallOutlined';
+
+const useStyles = makeStyles((theme) => ({
+    
+}));
+
+const footers = [
+    {
+      title: 'CATEGORIES',
+      description: ['Clothing', 'Accessories', 'Women', 'Men', 'Shoes', 'New Arrivals', 'Clearance'],
+    },
+    {
+      title: 'OUR POLICY',
+      description: ['Refund & Return Policy', 'Privacy Notice', 'Terms & conditions', 'Cookies Policy', 'Warranty Policy'],
+    },
+    {
+      title: 'GET IN TOUCH',
+    },
+    {
+      title: 'FOLLOW US',
+    },
+  ];
+
+  function Copyright() {
+    return (
+      <Typography variant="body2" color="textSecondary">
+        {'Copyright © '}
+        <Link color="inherit" href="#">
+         Carolina 2021.
+        </Link>{' '}
+        {new Date().getFullYear()}
+        {'.'}
+      </Typography>
+    );
+  }
+  
+export default function Footer(){
+    const classes = useStyles();
     return(
-        <footer className="footer-area padding-top-70 margin-top-70">
-            <div className="footer-top padding-bottom-50">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-3 col-md-6">
-                            <div className="widget widget_nav_menu">
-                                <h4 className="widget-title">CATEGORIES</h4>
-                                <ul className="stone-go-top">
-                                    <li><a href="#/collection">Clothing</a></li>
-                                    <li><a href="#/collection-list">Accessories</a></li>
-                                    <li><a href="#/collection-full">Women</a></li>
-                                    <li><a href="#/collection-list">Men</a></li>
-                                    <li><a href="#/collection-full">Shoes</a></li>
-                                    <li><a href="#/collection">New Arrivals</a></li>
-                                    <li><a href="#/collection-list">Clearance</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-6">
-                            <div className="widget widget_nav_menu">
-                                <h4 className="widget-title">OUR POLICY</h4>
-                                <ul className="stone-go-top">
-                                    <li><a href="#/collection">Brands</a></li>
-                                    <li><a href="#/contact">Contact Us</a></li>
-                                    <li><a href="#/about">About</a></li>
-                                    <li><a href="#/blog">Blog</a></li>
-                                    <li><a href="#/blog-details">Blog details</a></li>
-                                    <li><a href="#/comming-soon">Comming Soon</a></li>
-                                    <li><a href="#/collection-full">Shop</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6">
-                            <div className="widget contact-widget">
-                                <h4 className="widget-title">GET IN TOUCH</h4>
-                                <ul className="contact_info_list">
-                                    <li className="single-info-item">
-                                        <div className="icon"><i class="icon-home-foother"></i></div>
-                                        <div className="details">
-                                            <span>Davis Patrick<br/>P.O. Box 147 2546 Sociosqu Rd. <br/>Bethlehem Utah 02913</span>
-                                        </div>
-                                    </li>
-                                    <li className="single-info-item"><div class="icon"><i class="icon-email-subscribe"></i></div><div class="details">support@example.com</div></li>
-                                    <li className="single-info-item"><div class="icon"><i class="icon-call-footer"></i></div><div class="details"><a href="tel:+496170961709">(939) 353-1107, (302) 259-2375</a></div></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="col-lg-2 col-md-6">
-                            <div className="widget widget_nav_menu">
-                                <h4 className="widget-title">FOLLOW US</h4>
-                                <ul>
-                                    <li><a href=""><i class="icon-facebook"></i> Facebook</a></li>
-                                    <li><a href=""><i class="icon-twitter"></i> Twitter</a></li>
-                                    <li><a href=""><i class="icon-instagram"></i> Instagram</a></li>
-                                    <li><a href=""><i class="icon-pinterest"></i> Pinterest</a></li>
-                                    <li><a href=""><i class="icon-youtube"></i> Youtube</a></li>
-                                    <li><a href=""><i class="icon-skype"></i> Skype</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <footer className="footer-area mt70 pt70">
+            <div className="footer-top pb50">
+                <Container maxWidth="lg">
+                    <Grid container spacing={4} justify="space-evenly">
+                        <Grid item xs={6} sm={3}>
+                            <Typography className="footer-title" variant="h3" color="textPrimary">
+                                {footers[0].title}
+                            </Typography>
+                            <ul className="footer_nav_list">
+                                {footers[0].description.map((item) => (
+                                <li key={item}>
+                                    <Link href="#" variant="subtitle1" color="textSecondary">
+                                    {item}
+                                    </Link>
+                                </li>
+                                ))}
+                            </ul>
+                        </Grid>
+                        <Grid item xs={6} sm={3}>
+                            <Typography className="footer-title" variant="h3" color="textPrimary">
+                                {footers[1].title}
+                            </Typography>
+                            <ul className="footer_nav_list">
+                                {footers[1].description.map((item) => (
+                                <li key={item}>
+                                    <Link href="#" variant="subtitle1" color="textSecondary">
+                                    {item}
+                                    </Link>
+                                </li>
+                                ))}
+                            </ul>
+                        </Grid>
+                        <Grid item xs={6} sm={4}>
+                            <Typography className="footer-title" variant="h3" color="textPrimary">
+                                {footers[2].title}
+                            </Typography>
+                            <ul className="contact_info_list">
+                                <Grid component="li" container direction="row" spacing={2} >
+                                    <Grid item>
+                                        <HomeOutlinedIcon className="icon" />
+                                    </Grid>
+                                    <Grid item>
+                                        <Typography component="span">Davis Patrick<br/>P.O. Box 147 2546 Sociosqu Rd. <br/>Bethlehem Utah 02913</Typography>
+                                    </Grid>
+                                </Grid>
+                                <Grid component="li" container direction="row" spacing={2} >
+                                    <Grid item>
+                                        <MailOutlineOutlinedIcon className="icon" />
+                                    </Grid>
+                                    <Grid item>
+                                        support@example.com
+                                    </Grid>
+                                </Grid>
+                                <Grid component="li" container direction="row" spacing={2} >
+                                    <Grid item>
+                                        <CallOutlinedIcon className="icon" />
+                                    </Grid>
+                                    <Grid item>
+                                        <Link href="tel:+496170961709">(939) 353-1107, (302) 259-2375</Link>
+                                    </Grid>
+                                </Grid>
+                            </ul>
+                        </Grid>
+                        <Grid item xs={6} sm={2}>
+                            <Typography className="footer-title" variant="h3" color="textPrimary">
+                                {footers[3].title}
+                            </Typography>
+                            <ul className="footer_social_nav">
+                                <li>
+                                    <Link display="block" variant="body1" href="#" key="Facebook">
+                                        <Grid container direction="row" spacing={2} alignItems="center">
+                                            <Grid item>
+                                                <FacebookIcon />
+                                            </Grid>
+                                            <Grid item>Facebook</Grid>
+                                        </Grid>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link display="block" variant="body1" href="#" key="Twitter">
+                                        <Grid container direction="row" spacing={2} alignItems="center">
+                                            <Grid item>
+                                                <TwitterIcon />
+                                            </Grid>
+                                            <Grid item>Twitter</Grid>
+                                        </Grid>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link display="block" variant="body1" href="#" key="Instagram">
+                                        <Grid container direction="row" spacing={2} alignItems="center">
+                                            <Grid item>
+                                                <InstagramIcon />
+                                            </Grid>
+                                            <Grid item>Instagram</Grid>
+                                        </Grid>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link display="block" variant="body1" href="#" key="Pinterest">
+                                        <Grid container direction="row" spacing={2} alignItems="center">
+                                            <Grid item>
+                                                <PinterestIcon />
+                                            </Grid>
+                                            <Grid item>Pinterest</Grid>
+                                        </Grid>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link display="block" variant="body1" href="#" key="Youtube">
+                                        <Grid container direction="row" spacing={2} alignItems="center">
+                                            <Grid item>
+                                                <YouTubeIcon />
+                                            </Grid>
+                                            <Grid item>Youtube</Grid>
+                                        </Grid>
+                                    </Link>
+                                </li>
+                            </ul>
+                        </Grid>
+                    </Grid>                   
+                </Container>
             </div>
             <div className="footer-bottom">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-6 align-self-center">
-                            <p>© Stoon 2020. Powered with <i class="fa fa-heart"></i> by <a href="">Codingeek</a>.</p>
-                        </div>
-                        <div className="col-md-6">
-                            <ul>
-                                <li><a href=""><img src="/react/stoon/assets/img/payment/1.png" alt="payment"/></a></li>
-                                <li><a href=""><img src="/react/stoon/assets/img/payment/2.png" alt="payment"/></a></li>
-                                <li><a href=""><img src="/react/stoon/assets/img/payment/3.png" alt="payment"/></a></li>
-                                <li><a href=""><img src="/react/stoon/assets/img/payment/4.png" alt="payment"/></a></li>
-                                <li><a href=""><img src="/react/stoon/assets/img/payment/5.png" alt="payment"/></a></li>
-                                <li><a href=""><img src="/react/stoon/assets/img/payment/6.png" alt="payment"/></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <Container maxWidth="lg">
+                    <Box display="flex" p={1} alignItems="center">
+                        <Box p={1} flexGrow={1}>
+                            <Copyright />
+                        </Box>
+                        <Box>
+                            <Box display="flex" component="ul" alignItems="center">
+                               <Box component="li"><img src={paypal} alt="paypal"/></Box>
+                               <Box component="li"><img src={visacard} alt="visacard"/></Box>
+                               <Box component="li"><img src={mastercard} alt="mastercard"/></Box>    
+                            </Box>
+                        </Box>
+                    </Box>
+                </Container>
             </div>
         </footer>
     )
 }
-
-export default Footer;

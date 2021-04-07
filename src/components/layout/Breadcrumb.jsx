@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
     root:{
-        color: 'white',
+        color: '#211f1f',
         '& ol': {
             justifyContent: 'flex-end',
             [theme.breakpoints.down("xs")]: {
@@ -45,12 +45,12 @@ function handleClick(event) {
                             Shop
                         </Link>
                         <Link
-                        color="textPrimary"
+                        color="primary"
                         href="/components/breadcrumbs/"
                         onClick={handleClick}
                         aria-current="page"
                         >
-                            {props.subtitle}
+                            {props.title}
                         </Link>
                     </Breadcrumbs>
                 </Grid>

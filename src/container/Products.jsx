@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Link, useHistory} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import Ratings from '../components/ui/Ratings';
 import { useTheme } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';

@@ -42,12 +42,12 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#fff',
   },
   toolbarTop: {
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#211f1f',
     padding: '6px 25px',
     position: 'relative',
     minHeight: 'auto',
     '& p':{
-      color: '#6C6C6C',
+      color: '#fff',
       fontSize: '14px',
       textTransform: 'uppercase',
       marginBottom: '0',
@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   contact: {
-    color: '#A4A4A4',
+    color: '#fff',
     fontSize: '13px',
     '& span': {
       marginLeft: '5px',
@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
   },
   socialLink: {
     '& a': {
-      color: '#A4A4A4',
+      color: '#fff',
       fontSize: '17px',
       margin: '0 5px',
       '&:hover':{

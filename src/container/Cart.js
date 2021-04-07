@@ -15,6 +15,9 @@ import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -28,13 +31,13 @@ const useStyles = makeStyles((theme) => ({
     },
     button: {
         borderRadius: '0px',
-        fontSize: '16px',
-        letterSpacing: '0px',
+        fontSize: '13px',
         lineHeight: '1.5',
         color: '#fff',
-        padding: '17px 24px',
+        padding: '15px 28px',
+        letterSpacing: '0.125rem',
         background: '#141414',
-        textTransform: 'capitalize',
+        textTransform: 'uppercase',
         fontWeight: '500',
         boxShadow: 'none',
         '&:hover':{
@@ -51,9 +54,10 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     cuponInput:{
-        marginTop: theme.spacing(2),
+        marginRight: theme.spacing(2),
         '& input':{
             backgroundColor: '#fff',
+            padding: '22px 12px 10px',
         }
     },
     mb3: {
@@ -63,16 +67,33 @@ const useStyles = makeStyles((theme) => ({
         marginTop: theme.spacing(3),
         marginBottom: theme.spacing(3),
     },
+    cartTotal: {
+        marginTop: '8rem',
+    },
+    cartTotalTable: {
+        margin: '3rem 0',
+        boxShadow: 'none',
+    },
+    radiobutton: {
+        '& svg':{
+            width: '1.5em',
+            height: '1.5em'
+        }
+      },
   }));
 
 export default function Cart(){
     const classes = useStyles();
 
+    const [shippingCharge, setSeshippingCharge] = React.useState('50');
+    const handleRadioChange = (event) => {
+        setSeshippingCharge(event.target.value);
+    };
+
     const cartReducer = useSelector((state)=> state);
     const cartItem = cartReducer.cartStore.cart;
+    console.log(cartItem);
     const rows = cartItem.map((item)=> createRow(item.name,'1',item.price))
-
-    const SHIPPING_CHARGE = 50.00;
 
     function ccyFormat(num) {
         return `${num.toFixed(2)}`;
@@ -92,23 +113,23 @@ export default function Cart(){
       }
 
     const invoiceSubtotal = subtotal(rows);
-    const invoiceShipping = SHIPPING_CHARGE;
-    const invoiceTotal = invoiceShipping + invoiceSubtotal;
+    const invoiceShipping = shippingCharge;
+    const invoiceTotal = (Number(invoiceSubtotal) + Number(invoiceShipping)).toFixed(2);
         
     return(
         <div className="product_details my60">
             <Container className={classes.root} maxWidth="lg">
                 <Grid container direction="row" spacing={4}>
-                    <Grid item xs={12} md={9}>
+                    <Grid item xs={12} md={12}>
                         <Grid container direction="column">
                             <Grid item xs={12}>
                                 <TableContainer component={Paper} className={classes.cartTable}>
                                     <Table className={classes.table} aria-label="spanning table">
                                         <TableHead>
                                             <TableRow>
-                                                <TableCell>Item</TableCell>
+                                                <TableCell>Product</TableCell>
                                                 <TableCell align="right">Price</TableCell>
-                                                <TableCell align="right">Qty</TableCell>
+                                                <TableCell align="right">Quantity</TableCell>
                                                 <TableCell align="right">Total</TableCell>
                                             </TableRow>
                                         </TableHead>
@@ -126,83 +147,78 @@ export default function Cart(){
                                 </TableContainer>
                             </Grid>
                             <Grid item xs={12}>
-                            <Grid
-                            container
-                            direction="row"
-                            justify="space-between"
-                            alignItems="center"
-                            >
-                                <Button
-                                variant="contained"
-                                color="primary"
-                                className={classes.button}>
-                                    Continue Shopping
-                                </Button>
-                                <Button
-                                variant="outlined"
-                                color="primary"
-                                className={`${classes.button} ${classes.btn_outline}`}>
-                                    Clear Shopping Cart
-                                </Button>
-                    
+                                <Box display="flex" alignItems="center">
+                                    <Box m={0} component="div" flexGrow={1}>
+                                        <TextField
+                                        className={classes.cuponInput} 
+                                        id="discountInput" 
+                                        label="COUPON" 
+                                        variant="filled" 
+                                        />
+                                        <Button
+                                        variant="contained"
+                                        color="primary"
+                                        className={classes.button}>
+                                            Apply Coupon
+                                        </Button>
+                                    </Box>
+                                    <Box m={0} component="div" >
+                                        <Button
+                                        variant="outlined"
+                                        color="primary"
+                                        className={`${classes.button} ${classes.btn_outline}`}>
+                                            UPDATE CART
+                                        </Button>       
+                                    </Box>
+                                </Box>
                             </Grid>
+                            <Grid item xs={12}>
+                                <div className={classes.cartTotal}>
+                                    <Typography>
+                                        CART TOTALS
+                                    </Typography>
+                                    <TableContainer component={Paper} className={classes.cartTotalTable}>
+                                        <Table className={classes.table} aria-label="spanning table">
+                                            <TableBody>
+                                                <TableRow>
+                                                    <TableCell style={{ width: 160 }}>Subtotal</TableCell>
+                                                    <TableCell align="left">{invoiceSubtotal}</TableCell>
+                                                </TableRow>
+                                                <TableRow>
+                                                    <TableCell style={{ width: 160 }}>Shipping</TableCell>
+                                                    <TableCell>
+                                                        <RadioGroup aria-label="shipping" name="shipping" value={shippingCharge} onChange={handleRadioChange}>
+                                                            <FormControlLabel 
+                                                            value="50"
+                                                            control={<Radio className={classes.radiobutton} 
+                                                            color="primary" />} 
+                                                            label={'Flat Rate: $50'} />
+                                                            <FormControlLabel 
+                                                            value="0" 
+                                                            control={<Radio className={classes.radiobutton} 
+                                                            color="primary" />} 
+                                                            label="Free shipping" />
+                                                        </RadioGroup>
+                                                    </TableCell>
+                                                </TableRow>
+                                                <TableRow>
+                                                    <TableCell style={{ width: 160 }}>Total</TableCell>
+                                                    <TableCell>{invoiceTotal}</TableCell>
+                                                </TableRow>
+                                                
+                                            </TableBody>
+                                        </Table>
+                                    </TableContainer>
+                                    <Button
+                                    variant="contained"
+                                    color="primary"
+                                    className={`${classes.button} ${classes.my3}`} 
+                                    >
+                                        Proceed To Checkout
+                                    </Button>
+                                </div>
                             </Grid>
                         </Grid>
-                    </Grid>
-                    <Grid item xs={12} md={3}>
-                        <div className="summary margin-top-20">
-                            <h6 className="title">Summary</h6>
-                            <h6 className="subtitle">Estimate Shipping and Tax</h6>
-                            <p className="destination">Enter your destination to get a shipping estimate.</p>
-                            <div className={classes.mb3}>
-                                <Box display="flex" justifyContent="space-between" className="total">
-                                    <Box m={0} component="p">Subtotal</Box>
-                                    <Box m={0} component="p">
-                                        $
-                                        <Typography component="span" className="total-cart">
-                                            {ccyFormat(invoiceSubtotal)}
-                                        </Typography>
-                                    </Box>
-                                </Box>
-                                <Box display="flex" justifyContent="space-between" className="total">
-                                    <Box m={0} component="p">Shipping</Box>
-                                    <Box m={0} component="p">
-                                        $
-                                        <Typography component="span" className="total-cart">
-                                            {ccyFormat(SHIPPING_CHARGE)}
-                                        </Typography>
-                                    </Box>
-                                </Box>
-                                <Box display="flex" justifyContent="space-between" className="total">
-                                    <Box m={0} component="p">Order Total</Box>
-                                    <Box m={0} component="p">
-                                        $
-                                        <Typography component="span" className="total-cart">
-                                            {ccyFormat(invoiceTotal)}
-                                        </Typography>
-                                    </Box>
-                                </Box>
-                            </div>
-
-                            <form noValidate autoComplete="off">
-                                <Typography variant="h4" component="h4">Apply Discount Code</Typography>
-                                <TextField
-                                className={classes.cuponInput} 
-                                id="discountInput" 
-                                label="Enter discount code" 
-                                variant="filled" 
-                                fullWidth />
-                            </form>
-                            <div className="btn-wrapper">
-                                <Button
-                                variant="contained"
-                                color="primary"
-                                className={`${classes.button} ${classes.my3}`} 
-                                fullWidth>
-                                    Proceed To Checkout
-                                </Button>
-                            </div>
-                        </div>
                     </Grid>
                 </Grid>
             </Container>
